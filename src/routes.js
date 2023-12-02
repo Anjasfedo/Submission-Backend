@@ -1,37 +1,40 @@
+// Importing individual handler functions from the handlers.js file
 const {
-  addBook,
-  getAllBooks,
-  getBookById,
-  updateBookById,
-  deleteBookById,
-} = require("./handler");
+  addBookHandler,
+  getAllBooksHandler,
+  getBookByIdHandler,
+  updateBookByIdHandler,
+  deleteBookByIdHandler,
+} = require("./handlers");
 
+// Defining routes for the application
 const routes = [
   {
-    method: "GET",
-    path: "/books",
-    handler: getAllBooks,
+    method: "POST", // HTTP method for adding a book
+    path: "/books", // URL path for adding a book
+    handler: addBookHandler, // Handler function for adding a book
   },
   {
-    method: "POST",
-    path: "/books",
-    handler: addBook,
+    method: "GET", // HTTP method for getting all books
+    path: "/books", // URL path for getting all books
+    handler: getAllBooksHandler, // Handler function for getting all books
   },
   {
-    method: "GET",
-    path: "/books/{bookId}",
-    handler: getBookById,
+    method: "GET", // HTTP method for getting a book by ID
+    path: "/books/{bookId}", // URL path for getting a book by ID
+    handler: getBookByIdHandler, // Handler function for getting a book by ID
   },
   {
-    method: "PUT",
-    path: "/books/{bookId}",
-    handler: updateBookById,
+    method: "PUT", // HTTP method for updating a book by ID
+    path: "/books/{bookId}", // URL path for updating a book by ID
+    handler: updateBookByIdHandler, // Handler function for updating a book by ID
   },
   {
-    method: "DELETE",
-    path: "/books/{bookId}",
-    handler: deleteBookById,
+    method: "DELETE", // HTTP method for deleting a book by ID
+    path: "/books/{bookId}", // URL path for deleting a book by ID
+    handler: deleteBookByIdHandler, // Handler function for deleting a book by ID
   },
 ];
 
+// Exporting the routes for use in the main application
 module.exports = routes;
